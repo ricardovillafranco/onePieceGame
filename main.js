@@ -1,6 +1,6 @@
 var pantalla = document.querySelector("canvas");
 var pincel = pantalla.getContext('2d');
-pincel.fillStyle = "white";
+pincel.fillStyle = "black";
 pincel.fillRect(0,0,600,400);
 
 var radio = 10;

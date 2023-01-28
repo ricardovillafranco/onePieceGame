@@ -7,9 +7,12 @@ body {
     background-color: black;
 }
 section {
+    padding: auto;
+    margin: auto;
+align-items: center;
 display: flex;
-width: 600px;
-height: 430px;
+width: 900px;
+height: 730px;
 }
 
 section img {
@@ -24,4 +27,12 @@ section img:hover {
     width: 80px;
     opacity: 1;
     filter: contrast(120%);
+}
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 600px;
 }
