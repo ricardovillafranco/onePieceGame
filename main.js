@@ -4,9 +4,13 @@ pincel.fillStyle = "black";
 pincel.fillRect(0,0,600,400);
 var logoOneP = new Image();
 logoOneP.src = "./img/onepieceLogo.png";
-var radio = 60;
+var radio = 44;
 var xRandom;
 var yRandom;
+let xOfset = 34;
+let yOfset = 32;
+xRandom = randomPosition(480);
+yRandom = randomPosition(280);
 
 
 function randomPosition(max) {
@@ -14,42 +18,36 @@ function randomPosition(max) {
 }
 
 $(logoOneP).on("load",function() {
-    pincel.drawImage(logoOneP,xRandom, yRandom,100,100);
+   updateScreen();
+    pincel.drawImage(logoOneP,xRandom, yRandom,70,70);
 });
 
- xRandom = randomPosition(500);
- yRandom = randomPosition(300);
 
 function clearScreen(){
     pincel.clearRect(0,0,600,400);
 }
 function updateScreen(){
     clearScreen();
-    xRandom = randomPosition(500);
-    yRandom = randomPosition(300);
+    xRandom = randomPosition(480);
+    yRandom = randomPosition(280);
     printTarget(xRandom,yRandom)
 }
 function printTarget(x,y){
-        printCircle((x+50),(y+50),radio,"red");
-        pincel.drawImage(logoOneP,x,y,100,100);
+        printCircle((x+xOfset),(y+yOfset),radio,"#2a6eea");
+        pincel.drawImage(logoOneP,xRandom, yRandom,70,70);        
         
 }
 
-
-
 setInterval(updateScreen,1000)
-
-
-
 
 function shoot (evento) {
    var x = evento.pageX - pantalla.offsetLeft;
    var y = evento.pageY - pantalla.offsetTop;
 
-   if((x< (xRandom+50) + radio)&&
-      (x> (xRandom+50) - radio)&&
-      (y <(yRandom+50) + radio)&&
-      (y > (yRandom+50) - radio)) {
+   if((x< (xRandom+xOfset) + radio)&&
+      (x> (xRandom+xOfset) - radio)&&
+      (y <(yRandom+yOfset) + radio)&&
+      (y > (yRandom+yOfset) - radio)) {
           alert("Nice shoot")
       }  
 }
