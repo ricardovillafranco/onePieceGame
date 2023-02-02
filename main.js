@@ -1,16 +1,18 @@
 var pantalla = document.getElementById("screen");
 var pincel = pantalla.getContext('2d');
 pincel.fillStyle = "black";
-pincel.fillRect(0,0,600,400);
+pincel.fillRect(0,0,800,600);
 var logoOneP = new Image();
 logoOneP.src = "./img/onepieceLogo.png";
-var radio = 44;
+var pantallaBG = new Image();
+pantallaBG.src = "./img/background.jpg"
+var radio = 35;
 var xRandom;
 var yRandom;
-let xOfset = 34;
-let yOfset = 32;
-xRandom = randomPosition(480);
-yRandom = randomPosition(280);
+let xOfset = 30;
+let yOfset = 28;
+xRandom = randomPosition(650);
+yRandom = randomPosition(450);
 
 
 function randomPosition(max) {
@@ -18,23 +20,24 @@ function randomPosition(max) {
 }
 
 $(logoOneP).on("load",function() {
+    
    updateScreen();
-    pincel.drawImage(logoOneP,xRandom, yRandom,70,70);
+    pincel.drawImage(logoOneP,xRandom, yRandom,60,60);
 });
-
+pincel.drawImage(pantallaBG,0,0,800, 600) 
 
 function clearScreen(){
-    pincel.clearRect(0,0,600,400);
+    pincel.clearRect(0,0,800,600);
 }
 function updateScreen(){
     clearScreen();
-    xRandom = randomPosition(480);
-    yRandom = randomPosition(280);
+    xRandom = randomPosition(650);
+    yRandom = randomPosition(450);
     printTarget(xRandom,yRandom)
 }
 function printTarget(x,y){
         printCircle((x+xOfset),(y+yOfset),radio,"#2a6eea");
-        pincel.drawImage(logoOneP,xRandom, yRandom,70,70);        
+        pincel.drawImage(logoOneP,xRandom, yRandom,60,60);        
         
 }
 

@@ -3,16 +3,29 @@
     margin: 0;
    
 }
+@font-face {
+    font-family: fontOnePiece;
+    src: url("./one\ piece\ font.ttf");
+}
 body {
+    background: url("./img/background.jpg");
+    background-size: cover;
+    
+    
     background-color: black;
+    color: #db2608;
+    display: grid;
+    place-items: center;
+    font-family: "fontOnePiece";
+    font-size:60px;
 }
 section {
     padding: auto;
     margin: auto;
 align-items: center;
 display: flex;
-width: 900px;
-height: 730px;
+width: 700px;
+height: 530px;
 }
 
 section img {
@@ -24,16 +37,27 @@ section img {
 }
 section img:hover {
     cursor: pointer;
-    width: 80px;
+    width: 40px;
     opacity: 1;
     filter: contrast(120%);
 }
+
+main {
+    color: #db2608;
+    display: grid;
+    place-items: center;
+    font-family: "fontOnePiece";
+    font-size:50px;
+    
+}
+
 canvas {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: auto;
+    padding-right:auto;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    width: 600px;
+    width: 800px;
+    height: 600px;
 }
 
