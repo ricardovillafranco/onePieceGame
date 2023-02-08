@@ -8,8 +8,12 @@
     src: url("./one\ piece\ font.ttf");
 }
 body {
-    background: url("./img/background.jpg");
-    background-size: cover;
+    background: url("./img/background2.jpg");
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+    
     
     
     background-color: black;
@@ -22,10 +26,10 @@ body {
 section {
     padding: auto;
     margin: auto;
-align-items: center;
-display: flex;
-width: 700px;
-height: 530px;
+    align-items: center;
+    display: flex;
+    width: 700px;
+    height: 530px;
 }
 
 section img {

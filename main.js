@@ -1,5 +1,6 @@
 var pantalla = document.getElementById("screen");
 var pincel = pantalla.getContext('2d');
+var luffy = document.getElementById("luffy")
 pincel.fillStyle = "black";
 pincel.fillRect(0,0,800,600);
 var logoOneP = new Image();
@@ -13,6 +14,15 @@ let xOfset = 30;
 let yOfset = 28;
 xRandom = randomPosition(650);
 yRandom = randomPosition(450);
+let loLograste = new Image()
+loLograste.src = "./img/chopper.jpg"
+
+let speed = 1000;
+
+ luffy.addEventListener("click", function(){
+     speed =100;
+     setInterval(updateScreen,speed);
+ })
 
 
 function randomPosition(max) {
@@ -41,7 +51,7 @@ function printTarget(x,y){
         
 }
 
-setInterval(updateScreen,1000)
+setInterval(updateScreen,speed)
 
 function shoot (evento) {
    var x = evento.pageX - pantalla.offsetLeft;
@@ -52,7 +62,12 @@ function shoot (evento) {
       (y <(yRandom+yOfset) + radio)&&
       (y > (yRandom+yOfset) - radio)) {
           alert("Nice shoot")
+          
+
+          
+          
       }  
+      
 }
 function printCircle(x,y,radio,color){
     pincel.fillStyle = color;
@@ -60,8 +75,7 @@ function printCircle(x,y,radio,color){
      pincel.arc(x,y,radio,0,2*Math.PI);
       pincel.fill();
    }
-  
-
+ 
  
 // var img = getElementById("target")
 
