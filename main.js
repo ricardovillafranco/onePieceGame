@@ -61,7 +61,7 @@ function shoot (evento) {
       (x> (xRandom+xOfset) - radio)&&
       (y <(yRandom+yOfset) + radio)&&
       (y > (yRandom+yOfset) - radio)) {
-          alert("Well done you caught it!!!")
+          alert("Well done, you caught it!!!")
           
 
           
