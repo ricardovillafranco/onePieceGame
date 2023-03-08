@@ -84,3 +84,10 @@ canvas {
    
 
 }
+@media  screen and (max-width:720px) {
+   body{
+    background-image: url(./img/sunny.jfif);
+    
+   } 
+    
+}
