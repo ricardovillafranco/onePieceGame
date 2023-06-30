@@ -1,4 +1,5 @@
 var pantalla = document.getElementById("screen");
+const modal = document.getElementById("modal")
 var pincel = pantalla.getContext('2d');
 var luffy = document.getElementById("luffy")
 pincel.fillStyle = "black";
@@ -19,9 +20,22 @@ loLograste.src = "./img/chopper.jpg"
 
 let speed = 1000;
 
- luffy.addEventListener("click", function(){
-     speed =100;
-     setInterval(updateScreen,speed);
+ pantalla.addEventListener("click", (e)=>{
+    
+        var x = e.pageX - pantalla.offsetLeft;
+        var y = e.pageY - pantalla.offsetTop;
+     
+        if((x< (xRandom+xOfset) + radio)&&
+           (x> (xRandom+xOfset) - radio)&&
+           (y <(yRandom+yOfset) + radio)&&
+           (y > (yRandom+yOfset) - radio)) {
+            modal.classList.add("active")
+
+            
+               
+           }  
+           
+     
  })
 
 
@@ -29,7 +43,7 @@ function randomPosition(max) {
     return Math.floor(Math.random()*max)
 }
 
-$(logoOneP).on("load",function() {
+$(logoOneP).on("load",function iniciar() {
     
    updateScreen();
     pincel.drawImage(logoOneP,xRandom, yRandom,60,60);
@@ -46,37 +60,44 @@ function updateScreen(){
     printTarget(xRandom,yRandom)
 }
 function printTarget(x,y){
+    
         printCircle((x+xOfset),(y+yOfset),radio,"#2a6eea");
-        pincel.drawImage(logoOneP,xRandom, yRandom,60,60);        
+        pincel.drawImage(logoOneP,xRandom, yRandom,60,60);  
+        
+              
         
 }
 
 setInterval(updateScreen,speed)
 
-function shoot (evento) {
-   var x = evento.pageX - pantalla.offsetLeft;
-   var y = evento.pageY - pantalla.offsetTop;
 
-   if((x< (xRandom+xOfset) + radio)&&
-      (x> (xRandom+xOfset) - radio)&&
-      (y <(yRandom+yOfset) + radio)&&
-      (y > (yRandom+yOfset) - radio)) {
-          alert("Well done, you caught it!!!")
-          
-
-          
-          
-      }  
-      
-}
 function printCircle(x,y,radio,color){
     pincel.fillStyle = color;
      pincel.beginPath();
      pincel.arc(x,y,radio,0,2*Math.PI);
       pincel.fill();
    }
+
+
+
+
+
  
- 
+// const btnAbrirModal = document.querySelector("#btn-abrir-modal");
+// const btnCerrarModal = document.querySelector("#btn-cerrar-modal");
+// const modal = document.querySelector("#modal");
+
+// btnAbrirModal.addEventListener("click", () => {
+//     modal.showModal();
+// })
+
+// btnCerrarModal.addEventListener("click", () => {
+//     modal.closest()
+// })
+
+
+
+
 // var img = getElementById("target")
 
 // pincel.drawImage(img, 100, 100);
@@ -181,7 +202,7 @@ function printCircle(x,y,radio,color){
 // setInterval(updateScreen,800) 
 
 
- pantalla.onclick = shoot;
+//  pantalla.onclick = shoot;
 
 // var logo =document.createElement("img");
 // logo.style.width = "80px";
