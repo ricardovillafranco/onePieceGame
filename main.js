@@ -18,42 +18,70 @@ yRandom = randomPosition(450);
 let loLograste = new Image()
 loLograste.src = "./img/chopper.jpg"
 
-let speed = 1000;
+var speed = 1000;
+var gameOver = false;
+
+function isGameOver (){
+if(modal.classList.contains("active")) {
+    console.log("game over")
+} 
+
+}
+
+
 
  pantalla.addEventListener("click", (e)=>{
     
         var x = e.pageX - pantalla.offsetLeft;
         var y = e.pageY - pantalla.offsetTop;
+      isGameOver();
+        
      
         if((x< (xRandom+xOfset) + radio)&&
            (x> (xRandom+xOfset) - radio)&&
            (y <(yRandom+yOfset) + radio)&&
            (y > (yRandom+yOfset) - radio)) {
-            modal.classList.add("active")
-
             
-               
+             modal.classList.toggle("active")
+             clearInterval(timer)
+            
+             
+
            }  
-           
+    
      
- })
+ }
+ 
+  
+
+ )
+
+
 
 
 function randomPosition(max) {
     return Math.floor(Math.random()*max)
 }
 
-$(logoOneP).on("load",function iniciar() {
+
+
+    $(logoOneP).on("load",function() {
     
-   updateScreen();
-    pincel.drawImage(logoOneP,xRandom, yRandom,60,60);
-});
-pincel.drawImage(pantallaBG,0,0,800, 600) 
+        updateScreen();
+         pincel.drawImage(logoOneP,xRandom, yRandom,60,60);
+     });
+     pincel.drawImage(pantallaBG,0,0,800, 600) 
+
+
+
+
+
 
 function clearScreen(){
     pincel.clearRect(0,0,800,600);
 }
 function updateScreen(){
+    
     clearScreen();
     xRandom = randomPosition(650);
     yRandom = randomPosition(450);
@@ -68,7 +96,7 @@ function printTarget(x,y){
         
 }
 
-setInterval(updateScreen,speed)
+var timer = setInterval(updateScreen,speed)
 
 
 function printCircle(x,y,radio,color){
@@ -78,7 +106,7 @@ function printCircle(x,y,radio,color){
       pincel.fill();
    }
 
-
+//  modal.classList.contains("avtive")? speed== 0 : console.log("la clase no esra activa")
 
 
 
